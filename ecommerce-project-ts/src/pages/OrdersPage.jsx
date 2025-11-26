@@ -12,7 +12,7 @@ export function OrdersPage({ cartItems, loadCart }) {
 		const getOrdersData = async () => {
 			const response = await axios.get('/api/orders?expand=products');
 			setOrders(response.data);
-		}
+		} 
 		getOrdersData();
 	}, []);
 	return (
