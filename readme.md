@@ -20,16 +20,16 @@
 
 # 4. Installation
 ## 4.1 Clone repo
-remote add origin https://github.com/CodeByAashik/Ecommerce-project.git
+` remote add origin https://github.com/CodeByAashik/Ecommerce-project.git `
 
 ## 4.2 Go into folder
-cd project
+` cd project `
 
 ## 4.3 Install deps
-npm install
+` npm install `
 
 ## 4.4 Run dev server
-npm run dev
+` npm run dev `
 
 # 5. Future Enhancements
 - User Authentication
