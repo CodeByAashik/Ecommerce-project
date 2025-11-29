@@ -23,7 +23,7 @@
 ` remote add origin https://github.com/CodeByAashik/Ecommerce-project.git `
 
 ## 4.2 Go into folder
-` cd project `
+` cd Ecommerce-project `
 
 ## 4.3 Install deps
 ` npm install `
