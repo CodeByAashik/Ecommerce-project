@@ -2,6 +2,11 @@
 
 ### A simple e-commerce frontend built with React and modern UI components. The project includes product listing, product detail view, cart functionality, and a smooth user experience focused layout.
 
+![home](./home.jpeg)
+![cart](./cart.jpeg)
+![orders](./orders.jpeg)
+
+
 # 2. Features
 - Product listing grid
 - Product details page 
