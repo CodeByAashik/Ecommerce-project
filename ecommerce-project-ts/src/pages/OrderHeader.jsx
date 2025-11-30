@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { formatMoney } from '../utils/money';
-export function OrderHeader({order}) {
+export function OrderHeader({ order }) {
     return (
         <div className="order-header">
             <div className="order-header-left-section">
@@ -8,7 +8,7 @@ export function OrderHeader({order}) {
                     <div className="order-header-label">Order Placed:</div>
                     <div>{dayjs(order.orderTimeMs).format('dddd, MMMM D')}</div>
                 </div>
-                <div className="order-total"> 
+                <div className="order-total">
                     <div className="order-header-label">Total:</div>
                     <div>${formatMoney(order.totalCostCents)}</div>
                 </div>
