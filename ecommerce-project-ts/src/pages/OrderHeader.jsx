@@ -8,7 +8,7 @@ export function OrderHeader({order}) {
                     <div className="order-header-label">Order Placed:</div>
                     <div>{dayjs(order.orderTimeMs).format('dddd, MMMM D')}</div>
                 </div>
-                <div className="order-total">
+                <div className="order-total"> 
                     <div className="order-header-label">Total:</div>
                     <div>${formatMoney(order.totalCostCents)}</div>
                 </div>

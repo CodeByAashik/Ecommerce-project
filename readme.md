@@ -10,7 +10,7 @@
 # 2. Features
 - Product listing grid
 - Product details page 
-- Add/Remove items from cart
+- Add/Remove items from cart 
 - Resposive layout
 - Search product by name
 - Place order

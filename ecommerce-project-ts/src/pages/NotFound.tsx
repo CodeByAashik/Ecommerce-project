@@ -7,7 +7,7 @@ type NotFoundProp = {
         quantity: number,
         deliveryOptionId: string
     }[];
-}
+} 
 
 export function NotFound({cartItems}: NotFoundProp) {
     return(
