@@ -15,7 +15,7 @@ export function OrdersPage({ cartItems, loadCart }) {
 		} 
 		getOrdersData();
 	}, []);
-	return (
+	return ( 
 		<>
 			<Header cartItems={cartItems} />
 			<title>Orders</title>
