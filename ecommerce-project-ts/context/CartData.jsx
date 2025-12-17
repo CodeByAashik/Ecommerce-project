@@ -1,10 +1,18 @@
 import React from 'react'
+import { CartItemsContext } from './CartItemsContext'
 
-const CartData = () => {
+const CartData = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
+
+  const loadCart = async () => {
+    const response = await axios.get('/api/cart-items?expand=product');
+    setCartItems(response.data);
+  };
+
   return (
-    <div>
-      
-    </div>
+    <CartItemsContext.Provider value={{ cartItems, loadCart }}>
+      {children}
+    </CartItemsContext.Provider>
   )
 }
 
