@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { getCartItems } from '../services/cartAPI'
 import { HomePage } from './pages/home/HomePage'
 import { CheckoutPage } from './pages/checkout/CheckoutPage'
 import { OrdersPage } from './pages/OrdersPage'
@@ -10,12 +10,20 @@ import './App.css'
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [loadingCartItems, setLoadingCartItems] = useState(false);
+  const loadCart = async () => {  
+    try {
+      setLoadingCartItems(true);
+      const res = await getCartItems();
+      setCartItems(res);
+    } catch(err) {
+      console.log("[Error]: Failed to fetch the cart items : ",err);
+    } finally {
+      setLoadingCartItems(false);
+    }
+  }
 
-
-  const loadCart = async () => {
-    const response = await axios.get('/api/cart-items?expand=product');
-    setCartItems(response.data);
-  };
+  // load the cart on page reload 
   useEffect(() => {
     loadCart();
   }, []);
@@ -23,7 +31,6 @@ function App() {
 
 
   return (
-    <>
       <Routes>
         <Route path="/" element={<HomePage cartItems={cartItems} loadCart={loadCart} />} />
         <Route path="checkout" element={<CheckoutPage cartItems={cartItems} loadCart={loadCart} />} />
@@ -31,8 +38,6 @@ function App() {
         <Route path="tracking/:orderId/:productId" element={<Tracking cartItems={cartItems} />} />
         <Route path="*" element={<NotFound cartItems={cartItems} />} />
       </Routes>
-    </>
   )
 }
-
 export default App;
