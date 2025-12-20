@@ -5,11 +5,13 @@ import { ProductContainer } from "./ProductContainer"
 import { Header } from "../../../../ecommerce-project-ts/src/components/Header"
 import './HomePage.css'
 
-export function HomePage({ cartItems, loadCart }) {
+export function HomePage({ loadCart }) {
+
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
 	const search = searchParams.get('search');
 	const [products, setProducts] = useState([]);
+
 	useEffect(() => {
 		const fetchProductsData = async () => {
 			if (search) {
@@ -23,14 +25,13 @@ export function HomePage({ cartItems, loadCart }) {
 		fetchProductsData();
 	}, [search]);
 
-
 	return (
 		<>
 			<title>Ecommerce Website</title>
 			<link rel="icon" href="home-favicon.png" />
 
 			<div className="home-page">
-				<Header cartItems={cartItems} />
+				<Header />
 				<ProductContainer products={products} loadCart={loadCart} />
 			</div>
 		</>

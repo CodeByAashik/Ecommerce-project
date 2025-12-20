@@ -1,21 +1,19 @@
 import './Header.css'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router';
 import logoWhite from "../assets/images/ecommerce-logo.png";
 import mobileLogoWhite from "../assets/images/ecommerce-logo.png";
 import searchIcon from "../assets/images/icons/search-icon.png";
 import cartIcon from "../assets/images/icons/cart-icon.png";
 import { NavLink } from 'react-router'
+import { CartItemsContext } from '../../context/CartItemsContext';
 
-type HeaderProps = {
-    cartItems: {
-        productId: string,
-        quantity: number,
-        deliveryOptionId: string
-    }[];
-}
 
-export function Header({ cartItems }: HeaderProps) {
+export function Header() {
+
+    const { cartItems } = useContext(CartItemsContext);
+    console.log(cartItems);
+
     const [searchInput, setSearchInput] = useState("");
     const navigate = useNavigate();
 
