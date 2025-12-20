@@ -15,7 +15,7 @@ export function OrderDetailsGrid({ order, loadCart }) {
 					});
 					await loadCart();
 				}
-				let deliveryDate = dayjs(order.createdAt).add(7, 'day').format('MMMM D, YYYY');
+				const deliveryDate = dayjs(order.createdAt).add(7, 'day').format('MMMM D, YYYY');
 				return (
 					<Fragment key={orderProduct.product.id}>
 						<div className="product-image-container">
