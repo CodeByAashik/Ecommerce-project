@@ -1,8 +1,13 @@
+import { useContext } from 'react';
 import './CheckoutHeader.css'
 import logo from '../../assets/images/ecommerce-logo.png'
+import { CartItemsContext } from '../../../context/CartItemsContext';
 import checkoutLockIcon from '../../assets/images/icons/checkout-lock-icon.png'
 
-export function CheckoutHeader({cartItems}){
+export function CheckoutHeader(){
+    const {cartItems} = useContext(CartItemsContext);
+    console.log("CheckoutHeader cartItems:", cartItems);
+
     return(
         <div className="checkout-header">
             <div className="header-content">

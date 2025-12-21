@@ -5,7 +5,7 @@ import { ProductContainer } from "./ProductContainer"
 import { Header } from "../../../../ecommerce-project-ts/src/components/Header"
 import './HomePage.css'
 
-export function HomePage({ loadCart }) {
+export function HomePage() {
 
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
@@ -32,7 +32,7 @@ export function HomePage({ loadCart }) {
 
 			<div className="home-page">
 				<Header />
-				<ProductContainer products={products} loadCart={loadCart} />
+				<ProductContainer products={products}  />
 			</div>
 		</>
 	)

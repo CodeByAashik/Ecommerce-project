@@ -1,8 +1,12 @@
 import { DeliveryOptions } from "./DeliveryOptions";
 import { CartItemDetails } from './CartItemDetails';
 import { DeliveryDate } from './DeliveryDate';
+import { useContext } from "react";
+import { CartItemsContext } from "../../../context/CartItemsContext";
 
-export function OrderSummary({deliveryOptions, cartItems, loadCart, getPaymentSummaryData}) {
+export function OrderSummary({deliveryOptions, getPaymentSummaryData}) {
+	const {cartItems} = useContext(CartItemsContext);
+	
 	return (
 		<div className="order-summary">
 			{deliveryOptions.length > 0 && cartItems.map((item) => {
@@ -13,8 +17,8 @@ export function OrderSummary({deliveryOptions, cartItems, loadCart, getPaymentSu
 						<DeliveryDate deliveryOptions={deliveryOptions} item={item} />
 
 						<div className="cart-item-details-grid">
-							<CartItemDetails item={item} loadCart={loadCart}/>
-							<DeliveryOptions deliveryOptions={deliveryOptions} item={item} loadCart={loadCart} getPaymentSummaryData={getPaymentSummaryData}/>
+							<CartItemDetails item={item} />
+							<DeliveryOptions deliveryOptions={deliveryOptions} item={item} getPaymentSummaryData={getPaymentSummaryData}/>
 						</div>
 					</div>
 				);

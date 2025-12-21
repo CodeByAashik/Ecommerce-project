@@ -12,7 +12,7 @@ import { CartItemsContext } from '../../context/CartItemsContext';
 export function Header() {
 
     const { cartItems } = useContext(CartItemsContext);
-    console.log(cartItems);
+    console.log('header cartITems: ',cartItems);
 
     const [searchInput, setSearchInput] = useState("");
     const navigate = useNavigate();
