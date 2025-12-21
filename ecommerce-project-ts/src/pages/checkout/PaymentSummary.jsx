@@ -1,8 +1,12 @@
 import axios from 'axios';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 import { formatMoney } from "../../utils/money";
+import { CartItemsContext } from '../../../context/CartItemsContext';
 
-export function PaymentSummary({paymentSummary, loadCart}) {
+export function PaymentSummary({paymentSummary}) {
+
+    const { loadCart } = useContext(CartItemsContext);
     const navigate = useNavigate();
 
     const placeOrder = async () => {
