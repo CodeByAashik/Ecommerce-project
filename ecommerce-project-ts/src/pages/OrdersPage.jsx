@@ -5,24 +5,40 @@ import './OrdersPage.css'
 import axios from "axios";
 import { OrdersGrid } from "./OrdersGrid";
 
-export function OrdersPage({ cartItems, loadCart }) {
+export function OrdersPage({ cartItems }) {
 	const [orders, setOrders] = useState([]);
+
+
 
 	useEffect(() => {
 		const getOrdersData = async () => {
 			const response = await axios.get('/api/orders?expand=products');
 			setOrders(response.data);
-		} 
+		}
 		getOrdersData();
 	}, []);
-	return ( 
+
+
+
+	return (
 		<>
 			<Header cartItems={cartItems} />
 			<title>Orders</title>
-			<link rel="icon" href="orders-favicon.png" />
+			
+			<link
+				rel="icon"
+				href="orders-favicon.png"
+			/>
+
 			<div className="orders-page">
-				<div className="page-title">Your Orders</div>
-				<OrdersGrid orders={orders} loadCart={loadCart} />
+				<div
+					className="page-title"
+				>Your Orders</div>
+
+				<OrdersGrid
+					orders={orders}
+					loadCart={loadCart}
+				/>
 			</div>
 		</>
 	);

@@ -1,12 +1,15 @@
 import dayjs from 'dayjs';
 import axios from 'axios';
-import buyAgain from '../assets/images/icons/buy-again.png'
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Link } from "react-router";
+import { CartItemsContext } from '../../context/CartItemsContext';
+import buyAgain from '../assets/images/icons/buy-again.png';
 
-export function OrderDetailsGrid({ order, loadCart }) {
+export function OrderDetailsGrid({ order}) {
+	const {loadCart} = useContext(CartItemsContext);
 	return (
 		<div className="order-details-grid">
+
 			{order.products.map((orderProduct) => {
 				const addToCart = async () => {
 					await axios.post('/api/cart-items', {
@@ -15,6 +18,7 @@ export function OrderDetailsGrid({ order, loadCart }) {
 					});
 					await loadCart();
 				}
+
 				const deliveryDate = dayjs(order.createdAt).add(7, 'day').format('MMMM D, YYYY');
 				return (
 					<Fragment key={orderProduct.product.id}>

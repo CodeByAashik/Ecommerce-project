@@ -12,7 +12,7 @@ const CartItemsProvider = ({ children }) => {
       setLoading(true);
       setError(null);
       const res = await getCartItems();
-      setCartItems(res.data);
+      setCartItems(res);
     } catch (err) {
       setError(err);
       console.error('Failed to fetch cart items', err);

@@ -1,21 +1,17 @@
-import './Tracking.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
-import { Header } from '../components/Header';
 import { Link, useParams } from 'react-router';
+import { loadCart } from '../../services/ordersAPI';
+import './Tracking.css';
+import { Header } from '../components/Header';
 
-export function Tracking({cartItems}) {
+export function Tracking() {
 	const { orderId, productId } = useParams();
 	const [ order, setOrder ] = useState(null);	
 	
 	useEffect(() => {
-		const loadCart = async () => {
-			const response = await axios.get(`/api/orders/${orderId}?expand=products`);
-			setOrder(response.data);
-		};
-
-		loadCart();
+		loadCart(orderId, setOrder);
 	}, [orderId]);
 
 	const matchingOrders = order?.products.find((prod) => {
@@ -34,7 +30,7 @@ export function Tracking({cartItems}) {
 	
 	return (
 		<>
-			<Header cartItems={cartItems}/>
+			<Header />
 			<link rel="icon" href="tracking-favicon.png" />
 			<title>Track Package</title>
 			<div className="tracking-page">
