@@ -1,14 +1,16 @@
 import { useEffect, useState, Fragment } from "react";
-import { Header } from "../components/Header";
-
-import './OrdersPage.css'
 import axios from "axios";
+import { useContext } from "react";
+import { CartItemsContext } from "../../context/CartItemsContext";
+
+import { Header } from "../components/Header";
+import './OrdersPage.css'
 import { OrdersGrid } from "./OrdersGrid";
 
 export function OrdersPage({ cartItems }) {
 	const [orders, setOrders] = useState([]);
 
-
+	const { loadCart } = useContext(CartItemsContext);
 
 	useEffect(() => {
 		const getOrdersData = async () => {

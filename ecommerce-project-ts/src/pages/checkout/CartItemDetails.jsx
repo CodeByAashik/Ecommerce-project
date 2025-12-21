@@ -1,9 +1,12 @@
 import axios from 'axios'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { formatMoney } from "../../utils/money";
-export function CartItemDetails({ item, loadCart }) {
+import { CartItemsContext } from '../../../context/CartItemsContext';
+export function CartItemDetails({ item }) {
     const [isBeingUpdated, setIsBeingUpdated] = useState(false);
+    const { loadCart } = useContext(CartItemsContext);
     const [quantity, setQuantity] = useState(item.quantity);
+    
     async function updateQuantity() {
         if(!isBeingUpdated){
             setIsBeingUpdated(true);

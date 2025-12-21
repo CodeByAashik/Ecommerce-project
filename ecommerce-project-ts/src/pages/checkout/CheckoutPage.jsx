@@ -40,7 +40,7 @@ export function CheckoutPage({ cartItems, loadCart }) {
             <link rel="icon" href="cart-favicon.png" />
 
 
-            <CheckoutHeader cartItems={cartItems} />
+            <CheckoutHeader />
             <div className="checkout-page">
                 <div className="page-title">Review your order</div>
                 <div className="checkout-grid">

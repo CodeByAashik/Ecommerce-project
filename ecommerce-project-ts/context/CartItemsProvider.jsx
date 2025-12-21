@@ -7,7 +7,7 @@ const CartItemsProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const loadCart = useCallback(async () => {
+  const loadCart = async () => {
     try {
       setLoading(true);
       setError(null);
@@ -20,7 +20,7 @@ const CartItemsProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  };
 
   useEffect(() => {
     loadCart();
