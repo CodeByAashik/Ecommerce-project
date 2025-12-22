@@ -1,11 +1,13 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './CheckoutPage.css'
 import { CheckoutHeader } from './CheckoutHeader';
 import { OrderSummary } from './OrderSummary';
 import { PaymentSummary } from './PaymentSummary';
+import { CartItemsContext } from '../../../context/CartItemsContext';
 
-export function CheckoutPage({ cartItems, loadCart }) {
+export function CheckoutPage() {
+    const { cartItems } = useContext(CartItemsContext);
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     const [paymentSummary, setPaymentSummary] = useState({
         totalItems: 0,
