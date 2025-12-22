@@ -11,7 +11,7 @@ export function PaymentSummary({paymentSummary}) {
 
     const placeOrder = async () => {
         await axios.post('/api/orders');
-        await loadCart();
+         loadCart();
         navigate('/orders');
     }
 

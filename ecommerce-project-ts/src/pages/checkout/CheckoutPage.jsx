@@ -34,7 +34,7 @@ export function CheckoutPage() {
             setPaymentSummary(response.data);
         }
         getPaymentSummaryData();
-    }, [cartItems])
+    }, [cartItems]);
 
     return (
         <>

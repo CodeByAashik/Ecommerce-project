@@ -24,7 +24,7 @@ const CartItemsProvider = ({ children }) => {
 
   useEffect(() => {
     loadCart();
-  }, [loadCart]);
+  }, []);
 
   const value = useMemo(() => ({
     cartItems,
