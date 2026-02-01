@@ -25,9 +25,9 @@
 
 # 4. Installation
 ## 4.1 Clone repo
-` remote add origin https://github.com/CodeByAashik/Ecommerce-project.git `
+` git clone https://github.com/CodeByAashik/Ecommerce-project.git `
 
-## 4.2 Go into folder
+## 4.2 Navigate into the project folder
 ` cd Ecommerce-project `
 
 ## 4.3 Install deps
